@@ -13,15 +13,15 @@
                 <div class="col-12">
                     <form action="{{ route('filter-barang-masuk') }}" method="GET">
                         <div class="row g-3">
-                            <div class="col-12 col-sm-6 col-lg-5">
+                            <div class="col-12 col-sm-6 col-lg-4">
                                 <label class="form-label">Tanggal Mulai</label>
                                 <input type="date" class="form-control dt-input dt-full-name" name="start_date" required>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-5">
+                            <div class="col-12 col-sm-6 col-lg-4">
                                 <label class="form-label">Tanggal Akhir</label>
                                 <input type="date" class="form-control dt-input dt-full-name" name="end_date" required>
                             </div>
-                            <div class="col-12 col-sm-6 col-lg-2 text-center d-flex align-items-end justify-content-start"
+                            <div class="col-12 col-sm-6 col-lg-4 text-center d-flex align-items-end justify-content-start"
                                 style="gap: 2px; margin-left: -6px">
                                 <button class="dt-button add-new btn btn-info" type="submit"><span><i
                                             class="bx bx-plus me-0 me-sm-1"></i><span
@@ -40,6 +40,10 @@
                                 <a href="{{ route('pembelian-all-pdf') }}" class="btn btn-icon btn-google-plus"
                                     title="Export PDF" target="_blank">
                                     <span class="tf-icons bx bxs-file-pdf"></span>
+                                </a>
+                                <a href="{{ route('pembelian-excels') }}" class="btn btn-icon"
+                                    title="Excel" style="background-color: #5fa9a8">
+                                    <span class="tf-icons bx bxs-file-export text-white"></span>
                                 </a>
                                 @endif
                             </div>

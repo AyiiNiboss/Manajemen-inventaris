@@ -171,6 +171,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         App\Providers\NotifServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ])->toArray(),
 
@@ -189,6 +190,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];

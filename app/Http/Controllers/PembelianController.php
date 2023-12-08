@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BarangModel;
+use App\Exports\PembelianExport;
 use App\Models\StokModel;
+use App\Models\BarangModel;
 use Illuminate\Http\Request;
-use App\Models\PembelianModel;
-use App\Models\DetailPembelianModel;
 use App\Models\SupplierModel;
-use Illuminate\Support\Facades\Session;
+use App\Models\PembelianModel;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\DetailPembelianModel;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 
 class PembelianController extends Controller
 {
@@ -209,5 +211,9 @@ class PembelianController extends Controller
         $pdf->setPaper('landscape');
         $pdf = pdf::loadView('Laporan.barang masuk.pembelian-export-all-pdf', $datax)->setPaper('a4', 'landscape')->setWarnings(false);
         return $pdf->stream();
+    }
+
+    public function ExportExcel(){
+        return Excel::download(new PembelianExport(), 'Laporan_barang_masuk.xlsx');
     }
 }

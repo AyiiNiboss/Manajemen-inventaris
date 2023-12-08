@@ -127,7 +127,7 @@
             <div class="col-md-3 col-12 mb-md-0 mb-3">
                 <label for="emailBasic" class="form-label">Jumlah</label>
                 <input type="number" id="emailBasic" name="jumlah[]" min="0" class="form-control"
-                    placeholder="Masukan jumlah obat">
+                    placeholder="Masukan jumlah Barang">
                 @error('jumlah')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -153,7 +153,7 @@
             let nama_barang = $(this).val();
             if (nama_barang) {
                 $.ajax({
-                    url: '/pembelian-obat/add/' + nama_barang,
+                    url: '/pembelian-barang/add/' + nama_barang,
                     type: 'GET',
                     data: {
                         '_token': '{{ csrf_token() }}'

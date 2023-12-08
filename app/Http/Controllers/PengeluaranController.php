@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\StokModel;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\PengeluaranModel;
+use App\Exports\PengeluaranExport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\DetailPengeluaranModel;
 use Illuminate\Support\Facades\Session;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class PengeluaranController extends Controller
 {
@@ -241,6 +243,10 @@ class PengeluaranController extends Controller
         $pdf->setPaper('landscape');
         $pdf = pdf::loadView('Laporan.barang keluar.pengeluaran-export-all-pdf', $datax)->setPaper('a4', 'landscape')->setWarnings(false);
         return $pdf->stream();
+    }
+
+    public function ExportExcel(){
+        return Excel::download(new PengeluaranExport(), 'Laporan_barang_keluar.xlsx');
     }
 
 }

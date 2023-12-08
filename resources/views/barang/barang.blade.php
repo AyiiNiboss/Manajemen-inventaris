@@ -224,7 +224,7 @@
                     </div>
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">deskripsi Obat</label>
+                            <label for="exampleFormControlTextarea1" class="form-label">deskripsi barang</label>
                             <textarea class="form-control" name="deskripsi" id="exampleFormControlTextarea1"
                                 rows="3"></textarea>
                         </div>

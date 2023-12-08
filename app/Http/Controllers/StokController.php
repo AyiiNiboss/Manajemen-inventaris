@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BarangExport;
 use Carbon\Carbon;
 use App\Models\StokModel;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\Datatables;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\Facades\Datatables;
 
 class StokController extends Controller
 {
@@ -85,5 +87,9 @@ class StokController extends Controller
         $pdf->setPaper('landscape');
         $pdf = pdf::loadView('Laporan.barang.stok-export-pdf', $datax)->setPaper('a4', 'landscape')->setWarnings(false);
         return $pdf->stream();
+    }
+
+    public function ExportExcel(){
+        return Excel::download(new BarangExport(), 'Stok_Barang.xlsx');
     }
 }

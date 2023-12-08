@@ -103,6 +103,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/laporan-barang-masuk-pdf/{id}', [PembelianController::class, 'ExportPDF'])->name('pembelian-pdf');
     Route::get('/laporan-barang-masuk-pdf', [PembelianController::class, 'ExportAllPDF'])->name('pembelian-all-pdf');
     Route::get('/laporan-barang-masuk-pdf/{start_date}/{end_date}', [PembelianController::class, 'ExportAllPDFFilter'])->name('pembelian-all-pdf-filter');
+    Route::get('/laporan-barang-masuk-excel', [PembelianController::class, 'ExportExcel'])->name('pembelian-excels');
 
     // Menu Laporan Barang Keluar
     Route::get('/laporan-barang-keluar', [PengeluaranController::class, 'LaporanPengeluaran'])->name('laporan-pengeluaran');
@@ -111,11 +112,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/filter-barang-keluar', [PengeluaranController::class, 'FilterBarangKeluar'])->name('filter-barang-keluar');
     Route::get('/laporan-barang-keluar-pdf/{start_date}/{end_date}', [PengeluaranController::class, 'ExportAllPDFFilter'])->name('pengeluaran-all-pdf-filter');
     Route::get('/laporan-barang-keluar-pdf', [PengeluaranController::class, 'ExportAllPDF'])->name('pengeluaran-all-pdf');
-
+    Route::get('/laporan-barang-keluar-excel', [PengeluaranController::class, 'ExportExcel'])->name('pengeluaran-excels');
+        
     // Menu Laporan Stok Barang
     Route::get('/laporan-stok-barang', [StokController::class, 'LaporanStok'])->name('laporan-stok-barang');
     Route::get('/filter-stok-barang', [StokController::class, 'FilterStokBarang'])->name('filter-stok-barang');
     Route::get('/laporan-stok-barang-pdf/{start_date}/{end_date}', [StokController::class, 'ExportAllPDFFilter'])->name('stok-all-pdf-filter');
     Route::get('/laporan-stok-barang-pdf', [StokController::class, 'ExportAllPDF'])->name('stok-all-pdf');
+    Route::get('/laporan-stok-barang-excel', [StokController::class, 'ExportExcel'])->name('stok-excels');
 
 });
